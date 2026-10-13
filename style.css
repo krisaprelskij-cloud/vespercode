@@ -970,95 +970,112 @@ body {
 }
 
 @media (max-width: 1024px) {
-    /* Шапка в одну линию как на макете */
     .header {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 15px 20px;
+        padding: 10px 12px;
+        width: 100%;
+        box-sizing: border-box;
     }
     .logo-img {
-        height: 32px;
+        height: 28px;
     }
     .nav-menu {
-        max-width: 70%;
+        justify-self: auto;
         overflow-x: auto;
         -webkit-overflow-scrolling: touch;
+        max-width: calc(100% - 90px);
     }
     .nav-menu::-webkit-scrollbar {
         display: none;
     }
     .nav-menu ul {
-        gap: 12px;
+        gap: 10px;
         flex-wrap: nowrap;
+        white-space: nowrap;
     }
     .nav-menu ul li a {
         font-size: 11px;
-        padding-bottom: 4px;
+        padding-bottom: 2px;
     }
     .header-right-placeholder {
         display: none;
     }
 
-    /* Первый экран: Звезда сверху, текст снизу */
     .hero-section {
         display: flex;
         flex-direction: column;
         align-items: center;
         text-align: center;
-        padding: 20px 20px 60px 20px;
+        padding: 15px 12px 40px 12px;
         height: auto;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
     }
     .hero-visual {
-        order: -1; /* Звезда строго первой */
-        height: 260px;
+        order: -1;
+        height: 220px;
         width: 100%;
-        margin-bottom: 20px;
+        margin-bottom: 10px;
     }
     .star-video {
-        width: 240px;
-        height: 240px;
+        width: 200px;
+        height: 200px;
     }
     .hero-content {
         width: 100%;
+        max-width: 100%;
         display: flex;
         flex-direction: column;
         align-items: center;
+        box-sizing: border-box;
     }
     .hero-text-block {
         margin-top: 0;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        padding: 0;
     }
     .hero-content h1 {
-        font-size: 32px;
-        margin-bottom: 16px;
+        font-size: 26px;
+        margin-bottom: 14px;
+        word-break: normal;
+        padding: 0 4px;
+        box-sizing: border-box;
     }
     .hero-content p {
-        font-size: 14px;
+        font-size: 13px;
         max-width: 100%;
-        margin-bottom: 25px;
+        margin-bottom: 20px;
+        padding: 0 8px;
+        box-sizing: border-box;
     }
     .hero-buttons {
-        flex-wrap: wrap;
+        flex-direction: row;
+        flex-wrap: nowrap;
         justify-content: center;
-        gap: 12px;
+        gap: 8px;
         width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        padding: 0 4px;
     }
     .btn {
-        padding: 12px 20px;
-        font-size: 13px;
+        padding: 10px 14px;
+        font-size: 11px;
+        white-space: nowrap;
     }
     .social-icons {
         position: relative;
         bottom: auto;
         left: auto;
         justify-content: center;
-        margin-top: 30px;
+        margin-top: 25px;
     }
 
-    /* Остальные блоки */
     .portfolio-header {
         flex-direction: column;
         align-items: flex-start;
