@@ -50,6 +50,7 @@ body {
     object-fit: contain;
 }
 
+/* Навигация строго по центру экрана */
 .nav-menu {
     justify-self: center;
     position: relative;
@@ -79,6 +80,7 @@ body {
     color: #ffffff;
 }
 
+/* Линия меню и кружок */
 .nav-indicator-bar {
     position: absolute;
     bottom: -2px;
@@ -105,20 +107,18 @@ body {
     justify-self: end;
 }
 
-/* Первый экран (ПК: текст строго слева, видео строго справа) */
+/* Первый экран (Hero) — ПК версия: текст слева, видео справа (согласно структуре HTML)[cite: 9, 10] */
 .hero-section {
     width: 100%;
     height: calc(100vh - 112px);
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-areas: "content visual";
     align-items: center;
     padding: 0 60px;
     position: relative;
 }
 
 .hero-content {
-    grid-area: content;
     position: relative;
     height: 100%;
     display: flex;
@@ -130,6 +130,7 @@ body {
     margin-top: -20px;
 }
 
+/* Шрифты заголовков */
 .hero-content h1,
 .portfolio-header h2,
 .about-content h2,
@@ -158,6 +159,7 @@ body {
     font-weight: 300;
 }
 
+/* Кнопки */
 .hero-buttons {
     display: flex;
     gap: 20px;
@@ -197,6 +199,7 @@ body {
     background: rgba(255, 255, 255, 0.04);
 }
 
+/* Иконки соцсетей */
 .social-icons {
     position: absolute;
     bottom: 40px;
@@ -217,8 +220,8 @@ body {
     transform: translateY(-2px);
 }
 
+/* Правая визуальная часть */
 .hero-visual {
-    grid-area: visual;
     position: relative;
     width: 100%;
     height: 100%;
@@ -247,7 +250,7 @@ body {
     mask-image: radial-gradient(circle, rgba(0, 0, 0, 1) 45%, rgba(0, 0, 0, 0) 75%);
 }
 
-/* ОСТАЛЬНЫЕ БЛОКИ */
+/* БЛОК ПОРТФОЛИО: МОИ РАБОТЫ */
 .portfolio-section {
     width: 100%;
     padding: 100px 60px;
@@ -473,6 +476,7 @@ body {
     display: block;
 }
 
+/* Сетка каталога «Все работы» */
 #all-works-modal h2 {
     font-size: 32px;
     margin-bottom: 30px;
@@ -514,6 +518,7 @@ body {
     text-align: center;
 }
 
+/* БЛОК: НЕМНОГО ОБО МНЕ */
 .about-section {
     position: relative;
     width: 100%;
@@ -634,6 +639,7 @@ body {
     display: block;
 }
 
+/* БЛОК: СТЕК И ПРОЦЕСС */
 .skills-process-section {
     position: relative;
     width: 100%;
@@ -803,6 +809,7 @@ body {
     font-weight: 300;
 }
 
+/* БЛОК: КОНТАКТЫ */
 .contact-section {
     width: 100%;
     padding: 60px 60px 100px 60px;
@@ -943,6 +950,7 @@ body {
     font-weight: 500;
 }
 
+/* АДАПТИВНОСТЬ ДЛЯ ПЛАНШЕТОВ И МОБИЛЬНЫХ УСТРОЙСТВ */
 @media (max-width: 1200px) {
     .portfolio-grid, .all-works-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -961,68 +969,63 @@ body {
     }
 }
 
-/* МОБИЛЬНЫЕ УСТРОЙСТВА (строго до 768px) */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     .header {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 10px 10px;
+        padding: 10px 15px;
         width: 100%;
         box-sizing: border-box;
     }
     .logo-img {
-        height: 24px;
+        height: 32px;
     }
     .nav-menu {
         justify-self: auto;
         overflow-x: auto;
         -webkit-overflow-scrolling: touch;
-        max-width: calc(100% - 75px);
+        max-width: calc(100% - 60px);
     }
     .nav-menu::-webkit-scrollbar {
         display: none;
     }
     .nav-menu ul {
-        gap: 8px;
+        gap: 16px;
         flex-wrap: nowrap;
         white-space: nowrap;
     }
     .nav-menu ul li a {
-        font-size: 10px;
-        padding-bottom: 2px;
+        font-size: 12px;
+        padding-bottom: 4px;
     }
     .header-right-placeholder {
         display: none;
     }
 
+    /* Мобильная версия первого экрана: видео сверху, текст снизу без обрезания */
     .hero-section {
         display: flex;
         flex-direction: column;
         align-items: center;
         text-align: center;
-        padding: 10px 10px 40px 10px;
+        padding: 20px 20px 40px 20px;
         height: auto;
         width: 100%;
-        max-width: 100vw;
         box-sizing: border-box;
-        overflow-x: hidden;
     }
     .hero-visual {
-        grid-area: auto;
         order: -1;
-        height: 200px;
+        height: 280px;
         width: 100%;
-        margin-bottom: 5px;
+        margin-bottom: 20px;
     }
     .star-video {
-        width: 180px;
-        height: 180px;
+        width: 260px;
+        height: 260px;
     }
     .hero-content {
-        grid-area: auto;
         width: 100%;
-        max-width: 100%;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -1031,47 +1034,33 @@ body {
     .hero-text-block {
         margin-top: 0;
         width: 100%;
-        max-width: 100%;
         box-sizing: border-box;
-        padding: 0;
     }
     .hero-content h1 {
-        font-size: 22px;
-        margin-bottom: 12px;
-        word-break: normal;
-        padding: 0 2px;
-        box-sizing: border-box;
+        font-size: 28px;
         line-height: 1.2;
+        margin-bottom: 16px;
     }
     .hero-content p {
-        font-size: 12px;
+        font-size: 13px;
         max-width: 100%;
-        margin-bottom: 18px;
-        padding: 0 4px;
-        box-sizing: border-box;
-        line-height: 1.5;
+        margin-bottom: 24px;
     }
     .hero-buttons {
-        flex-direction: row;
-        flex-wrap: nowrap;
         justify-content: center;
-        gap: 6px;
-        width: 100%;
-        max-width: 100%;
-        box-sizing: border-box;
-        padding: 0 2px;
+        gap: 12px;
+        flex-wrap: wrap;
     }
     .btn {
-        padding: 10px 12px;
-        font-size: 10px;
-        white-space: nowrap;
+        padding: 12px 22px;
+        font-size: 13px;
     }
     .social-icons {
         position: relative;
         bottom: auto;
         left: auto;
         justify-content: center;
-        margin-top: 20px;
+        margin-top: 30px;
     }
 
     .portfolio-header {
@@ -1114,6 +1103,9 @@ body {
     .contact-glass-img {
         opacity: 0.4;
     }
+}
+
+@media (max-width: 768px) {
     .portfolio-grid, .all-works-grid {
         grid-template-columns: 1fr;
     }
