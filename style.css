@@ -105,20 +105,20 @@ body {
     justify-self: end;
 }
 
-/* Первый экран (ПК) */
+/* Первый экран (ПК: текст строго слева, видео строго справа) */
 .hero-section {
     width: 100%;
     height: calc(100vh - 112px);
     display: grid;
     grid-template-columns: 1fr 1fr;
+    grid-template-areas: "content visual";
     align-items: center;
     padding: 0 60px;
     position: relative;
 }
 
-/* Текст строго слева (колонка 1) */
 .hero-content {
-    grid-column: 1;
+    grid-area: content;
     position: relative;
     height: 100%;
     display: flex;
@@ -217,9 +217,8 @@ body {
     transform: translateY(-2px);
 }
 
-/* Видео строго справа (колонка 2) */
 .hero-visual {
-    grid-column: 2;
+    grid-area: visual;
     position: relative;
     width: 100%;
     height: 100%;
@@ -1010,7 +1009,7 @@ body {
         overflow-x: hidden;
     }
     .hero-visual {
-        grid-column: auto;
+        grid-area: auto;
         order: -1;
         height: 200px;
         width: 100%;
@@ -1021,7 +1020,7 @@ body {
         height: 180px;
     }
     .hero-content {
-        grid-column: auto;
+        grid-area: auto;
         width: 100%;
         max-width: 100%;
         display: flex;
