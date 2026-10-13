@@ -34,6 +34,15 @@
 
         <!-- Первый экран (Hero) -->
         <main id="home" class="hero-section">
+            <div class="hero-visual">
+                <div class="star-container">
+                    <video autoplay muted loop playsinline class="star-video">
+                        <source src="star-video.mp4" type="video/mp4">
+                        Ваш браузер не поддерживает видео.
+                    </video>
+                </div>
+            </div>
+
             <div class="hero-content">
                 <div class="hero-text-block">
                     <h1>СТИЛЬНЫЕ<br>И ФУНКЦИОНАЛЬНЫЕ<br>САЙТЫ</h1>
@@ -43,21 +52,12 @@
                         <a href="#contacts" class="btn btn-primary">Обсудить проект &rarr;</a>
                         <a href="#projects" class="btn btn-secondary">Смотреть работы &rarr;</a>
                     </div>
-                </div>
 
-                <div class="social-icons">
-                    <a href="https://t.me/vespercodev" target="_blank" class="social-icon"><img src="icon-telegram.png" alt="Telegram"></a>
-                    <a href="https://vk.com/vespercode" target="_blank" class="social-icon"><img src="icon-vk.png" alt="VK"></a>
-                    <a href="mailto:vespercodev@gmail.com" class="social-icon"><img src="icon-email.png" alt="Email"></a>
-                </div>
-            </div>
-
-            <div class="hero-visual">
-                <div class="star-container">
-                    <video autoplay muted loop playsinline class="star-video">
-                        <source src="star-video.mp4" type="video/mp4">
-                        Ваш браузер не поддерживает видео.
-                    </video>
+                    <div class="social-icons">
+                        <a href="https://t.me/vespercodev" target="_blank" class="social-icon"><img src="icon-telegram.png" alt="Telegram"></a>
+                        <a href="https://vk.com/vespercode" target="_blank" class="social-icon"><img src="icon-vk.png" alt="VK"></a>
+                        <a href="mailto:vespercodev@gmail.com" class="social-icon"><img src="icon-email.png" alt="Email"></a>
+                    </div>
                 </div>
             </div>
         </main>
@@ -282,7 +282,7 @@
         </section>
     </div>
 
-    <!-- Модальное окно для демонстрации видео одного проекта -->
+    <!-- Модальные окна -->
     <div id="project-modal" class="modal-overlay">
         <div class="modal-content">
             <button class="modal-close">&times;</button>
@@ -296,7 +296,6 @@
         </div>
     </div>
 
-    <!-- Модальное окно для каталога всех работ -->
     <div id="all-works-modal" class="modal-overlay">
         <div class="modal-content modal-content-large">
             <button class="modal-close">&times;</button>
