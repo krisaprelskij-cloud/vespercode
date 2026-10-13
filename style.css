@@ -72,6 +72,7 @@ body {
     display: block;
     transition: color 0.3s ease;
     font-family: 'Montserrat Alternates', sans-serif;
+    white-space: nowrap;
 }
 
 .nav-menu ul li a:hover,
@@ -969,59 +970,95 @@ body {
 }
 
 @media (max-width: 1024px) {
+    /* Шапка в одну линию как на макете */
     .header {
-        grid-template-columns: 1fr;
-        justify-items: center;
-        gap: 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
         padding: 15px 20px;
     }
     .logo-img {
-        height: 45px;
+        height: 32px;
+    }
+    .nav-menu {
+        max-width: 70%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    .nav-menu::-webkit-scrollbar {
+        display: none;
     }
     .nav-menu ul {
-        gap: 20px;
-        flex-wrap: wrap;
-        justify-content: center;
+        gap: 12px;
+        flex-wrap: nowrap;
     }
     .nav-menu ul li a {
-        font-size: 13px;
-        padding-bottom: 6px;
+        font-size: 11px;
+        padding-bottom: 4px;
     }
     .header-right-placeholder {
         display: none;
     }
+
+    /* Первый экран: Звезда сверху, текст снизу */
     .hero-section {
-        grid-template-columns: 1fr;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         text-align: center;
         padding: 20px 20px 60px 20px;
         height: auto;
     }
+    .hero-visual {
+        order: -1; /* Звезда строго первой */
+        height: 260px;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    .star-video {
+        width: 240px;
+        height: 240px;
+    }
     .hero-content {
+        width: 100%;
         display: flex;
         flex-direction: column;
         align-items: center;
     }
     .hero-text-block {
         margin-top: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .hero-content h1 {
+        font-size: 32px;
+        margin-bottom: 16px;
     }
     .hero-content p {
+        font-size: 14px;
         max-width: 100%;
+        margin-bottom: 25px;
+    }
+    .hero-buttons {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+        width: 100%;
+    }
+    .btn {
+        padding: 12px 20px;
+        font-size: 13px;
     }
     .social-icons {
         position: relative;
         bottom: auto;
         left: auto;
         justify-content: center;
-        margin-top: 40px;
+        margin-top: 30px;
     }
-    .hero-visual {
-        height: 380px;
-        margin-top: 20px;
-    }
-    .star-video {
-        width: 320px;
-        height: 320px;
-    }
+
+    /* Остальные блоки */
     .portfolio-header {
         flex-direction: column;
         align-items: flex-start;
@@ -1067,14 +1104,5 @@ body {
 @media (max-width: 768px) {
     .portfolio-grid, .all-works-grid {
         grid-template-columns: 1fr;
-    }
-    .header {
-        padding: 12px 15px;
-    }
-    .nav-menu ul {
-        gap: 15px;
-    }
-    .hero-content h1 {
-        font-size: 32px;
     }
 }
