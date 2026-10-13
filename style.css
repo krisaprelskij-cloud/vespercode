@@ -950,7 +950,7 @@ body {
     font-weight: 500;
 }
 
-/* Адаптивность */
+/* Адаптивность для планшетов */
 @media (max-width: 1200px) {
     .portfolio-grid, .all-works-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -969,7 +969,8 @@ body {
     }
 }
 
-@media (max-width: 1024px) {
+/* АДАПТИВНОСТЬ ТОЛЬКО ДЛЯ МОБИЛЬНЫХ УСТРОЙСТВ (до 768px) */
+@media (max-width: 768px) {
     .header {
         display: flex;
         justify-content: space-between;
@@ -1003,7 +1004,6 @@ body {
         display: none;
     }
 
-    /* Мобильная версия первого экрана: звезда сверху, текст снизу */
     .hero-section {
         display: flex;
         flex-direction: column;
@@ -1120,9 +1120,6 @@ body {
     .contact-glass-img {
         opacity: 0.4;
     }
-}
-
-@media (max-width: 768px) {
     .portfolio-grid, .all-works-grid {
         grid-template-columns: 1fr;
     }
