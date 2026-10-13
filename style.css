@@ -25,7 +25,7 @@ body {
     background-image: radial-gradient(circle at 10% 90%, rgba(130, 45, 110, 0.22) 0%, transparent 45%);
 }
 
-/* Шапка сайта (ПК по умолчанию) */
+/* Шапка сайта */
 .header {
     display: grid;
     grid-template-columns: 280px 1fr 280px;
@@ -105,7 +105,7 @@ body {
     justify-self: end;
 }
 
-/* Первый экран (ПК: текст слева, звезда справа) */
+/* Первый экран (ПК) */
 .hero-section {
     width: 100%;
     height: calc(100vh - 112px);
@@ -116,7 +116,9 @@ body {
     position: relative;
 }
 
+/* Текст строго слева (колонка 1) */
 .hero-content {
+    grid-column: 1;
     position: relative;
     height: 100%;
     display: flex;
@@ -215,7 +217,9 @@ body {
     transform: translateY(-2px);
 }
 
+/* Видео строго справа (колонка 2) */
 .hero-visual {
+    grid-column: 2;
     position: relative;
     width: 100%;
     height: 100%;
@@ -1006,6 +1010,7 @@ body {
         overflow-x: hidden;
     }
     .hero-visual {
+        grid-column: auto;
         order: -1;
         height: 200px;
         width: 100%;
@@ -1016,6 +1021,7 @@ body {
         height: 180px;
     }
     .hero-content {
+        grid-column: auto;
         width: 100%;
         max-width: 100%;
         display: flex;
