@@ -690,7 +690,6 @@ body {
     text-transform: uppercase;
 }
 
-/* Сетка карточек стека (3 сверху, 2 по центру снизу) */
 .skills-grid {
     display: flex;
     flex-wrap: wrap;
@@ -737,7 +736,6 @@ body {
     color: #ffffff;
 }
 
-/* Каскадное появление шагов блока «Процесс» по очереди */
 .process-steps {
     display: flex;
     flex-direction: column;
@@ -832,7 +830,6 @@ body {
     overflow: hidden;
 }
 
-/* Стеклянный 3D объект в блоке контактов */
 .contact-glass-img {
     position: absolute;
     right: 0;
@@ -975,8 +972,20 @@ body {
     .header {
         grid-template-columns: 1fr;
         justify-items: center;
+        gap: 15px;
+        padding: 15px 20px;
+    }
+    .logo-img {
+        height: 45px;
+    }
+    .nav-menu ul {
         gap: 20px;
-        padding: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .nav-menu ul li a {
+        font-size: 13px;
+        padding-bottom: 6px;
     }
     .header-right-placeholder {
         display: none;
@@ -1051,12 +1060,21 @@ body {
         font-size: 30px;
     }
     .contact-glass-img {
-        opacity: 0.4; /* На мобильных делаем объект полупрозрачнее, чтобы не мешать тексту */
+        opacity: 0.4;
     }
 }
 
 @media (max-width: 768px) {
     .portfolio-grid, .all-works-grid {
         grid-template-columns: 1fr;
+    }
+    .header {
+        padding: 12px 15px;
+    }
+    .nav-menu ul {
+        gap: 15px;
+    }
+    .hero-content h1 {
+        font-size: 32px;
     }
 }
