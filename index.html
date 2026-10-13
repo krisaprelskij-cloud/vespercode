@@ -19,8 +19,8 @@
             <nav class="nav-menu">
                 <ul id="nav-list">
                     <li><a href="#home" class="active" data-target="home">Главная</a></li>
-                    <li><a href="#about" data-target="about">Обо мне</a></li>
                     <li><a href="#projects" data-target="projects">Проекты</a></li>
+                    <li><a href="#about" data-target="about">Обо мне</a></li>
                     <li><a href="#skills" data-target="skills">Услуги</a></li>
                     <li><a href="#contacts" data-target="contacts">Контакты</a></li>
                 </ul>
@@ -331,7 +331,6 @@
     </div>
 
     <script>
-        // Управление навигацией, плавной прокруткой и подсветкой при скролле
         const navList = document.getElementById('nav-list');
         const navItems = navList.querySelectorAll('li a');
         const indicatorBar = document.getElementById('nav-indicator');
@@ -339,7 +338,6 @@
         function updateIndicator(targetItem) {
             const listRect = navList.getBoundingClientRect();
             const itemRect = targetItem.getBoundingClientRect();
-            
             const left = itemRect.left - listRect.left;
             const width = itemRect.width;
 
@@ -406,7 +404,6 @@
             observer.observe(section);
         });
 
-        // ЛОГИКА МОДАЛЬНЫХ ОКОН ДЛЯ ВИДЕО
         const projectModal = document.getElementById('project-modal');
         const allWorksModal = document.getElementById('all-works-modal');
         const modalVideoPlayer = document.getElementById('modal-video-player');
@@ -418,7 +415,6 @@
         const allWorkItems = document.querySelectorAll('.all-work-item');
         const closeButtons = document.querySelectorAll('.modal-close');
 
-        // Открытие видео по клику на карточку проекта
         projectCards.forEach(card => {
             card.addEventListener('click', () => {
                 const videoSrc = card.getAttribute('data-video');
@@ -431,27 +427,24 @@
             });
         });
 
-        // Открытие модалки «Все работы»
         openAllWorksBtn.addEventListener('click', (e) => {
             e.preventDefault();
             allWorksModal.classList.add('active');
         });
 
-        // Клик на элемент внутри каталога «Все работы» открывает конкретное видео
         allWorkItems.forEach(item => {
             item.addEventListener('click', () => {
                 const videoSrc = item.getAttribute('data-video');
                 const titleText = item.getAttribute('data-title');
 
-                allWorksModal.classList.remove('active'); // Закрываем каталог
+                allWorksModal.classList.remove('active');
                 modalProjectTitle.textContent = titleText;
                 modalVideoSource.setAttribute('src', videoSrc);
                 modalVideoPlayer.load();
-                projectModal.classList.add('active'); // Открываем плеер
+                projectModal.classList.add('active');
             });
         });
 
-        // Закрытие модальных окон
         function closeModal() {
             projectModal.classList.remove('active');
             allWorksModal.classList.remove('active');
@@ -469,7 +462,6 @@
             }
         });
 
-        // Анимация поочередного появления шагов «Процесс» при скролле
         const processStepsContainer = document.querySelector('.process-steps');
 
         if (processStepsContainer) {
