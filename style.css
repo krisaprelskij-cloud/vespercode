@@ -25,7 +25,7 @@ body {
     background-image: radial-gradient(circle at 10% 90%, rgba(130, 45, 110, 0.22) 0%, transparent 45%);
 }
 
-/* Шапка сайта */
+/* Шапка сайта (ПК по умолчанию) */
 .header {
     display: grid;
     grid-template-columns: 280px 1fr 280px;
@@ -50,7 +50,6 @@ body {
     object-fit: contain;
 }
 
-/* Навигация строго по центру экрана */
 .nav-menu {
     justify-self: center;
     position: relative;
@@ -80,7 +79,6 @@ body {
     color: #ffffff;
 }
 
-/* Линия меню и кружок */
 .nav-indicator-bar {
     position: absolute;
     bottom: -2px;
@@ -107,7 +105,7 @@ body {
     justify-self: end;
 }
 
-/* Первый экран (Hero) */
+/* Первый экран (ПК: текст слева, звезда справа) */
 .hero-section {
     width: 100%;
     height: calc(100vh - 112px);
@@ -130,7 +128,6 @@ body {
     margin-top: -20px;
 }
 
-/* Шрифты заголовков */
 .hero-content h1,
 .portfolio-header h2,
 .about-content h2,
@@ -159,7 +156,6 @@ body {
     font-weight: 300;
 }
 
-/* Кнопки */
 .hero-buttons {
     display: flex;
     gap: 20px;
@@ -199,7 +195,6 @@ body {
     background: rgba(255, 255, 255, 0.04);
 }
 
-/* Иконки соцсетей */
 .social-icons {
     position: absolute;
     bottom: 40px;
@@ -220,7 +215,6 @@ body {
     transform: translateY(-2px);
 }
 
-/* Правая визуальная часть */
 .hero-visual {
     position: relative;
     width: 100%;
@@ -250,7 +244,7 @@ body {
     mask-image: radial-gradient(circle, rgba(0, 0, 0, 1) 45%, rgba(0, 0, 0, 0) 75%);
 }
 
-/* БЛОК ПОРТФОЛИО: МОИ РАБОТЫ */
+/* ОСТАЛЬНЫЕ БЛОКИ */
 .portfolio-section {
     width: 100%;
     padding: 100px 60px;
@@ -476,7 +470,6 @@ body {
     display: block;
 }
 
-/* Сетка каталога «Все работы» */
 #all-works-modal h2 {
     font-size: 32px;
     margin-bottom: 30px;
@@ -518,7 +511,6 @@ body {
     text-align: center;
 }
 
-/* БЛОК: НЕМНОГО ОБО МНЕ */
 .about-section {
     position: relative;
     width: 100%;
@@ -639,7 +631,6 @@ body {
     display: block;
 }
 
-/* БЛОК: СТЕК И ПРОЦЕСС */
 .skills-process-section {
     position: relative;
     width: 100%;
@@ -809,7 +800,6 @@ body {
     font-weight: 300;
 }
 
-/* БЛОК: КОНТАКТЫ */
 .contact-section {
     width: 100%;
     padding: 60px 60px 100px 60px;
@@ -950,7 +940,6 @@ body {
     font-weight: 500;
 }
 
-/* Адаптивность для планшетов */
 @media (max-width: 1200px) {
     .portfolio-grid, .all-works-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -969,7 +958,7 @@ body {
     }
 }
 
-/* АДАПТИВНОСТЬ ТОЛЬКО ДЛЯ МОБИЛЬНЫХ УСТРОЙСТВ (до 768px) */
+/* МОБИЛЬНЫЕ УСТРОЙСТВА (строго до 768px) */
 @media (max-width: 768px) {
     .header {
         display: flex;
