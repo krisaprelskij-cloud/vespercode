@@ -1,5 +1,25 @@
+/* ------------------------------------------------------------------
+   ШРИФТ Rousseau Deco
+   Montserrat подключается через Google Fonts (см. index.html).
+   Если Rousseau Deco в Google Fonts нет, он виден только на твоём
+   компьютере, где установлен. Чтобы его видели все посетители, положи
+   файл шрифта в папку fonts/ и раскомментируй блок ниже
+   (проверь, что лицензия шрифта разрешает использование на сайте):
+
+   @font-face {
+       font-family: 'Rousseau Deco';
+       src: url('fonts/RousseauDeco.woff2') format('woff2'),
+            url('fonts/RousseauDeco.woff') format('woff');
+       font-weight: 700;
+       font-style: normal;
+       font-display: swap;
+   }
+------------------------------------------------------------------- */
+
 html {
     scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
 }
 
 * {
@@ -13,7 +33,21 @@ body {
     color: #ffffff;
     font-family: 'Montserrat Alternates', 'Montserrat', sans-serif;
     overflow-x: hidden;
-    width: 100vw;
+    width: 100%;
+}
+
+/* Когда открыто модальное окно, страница под ним не прокручивается */
+body.modal-open {
+    overflow: hidden;
+}
+
+/* Видимая рамка при навигации с клавиатуры */
+a:focus-visible,
+button:focus-visible,
+.portfolio-card:focus-visible,
+.all-work-item:focus-visible {
+    outline: 2px solid #d8b4fe;
+    outline-offset: 3px;
 }
 
 .site-container {
@@ -25,10 +59,19 @@ body {
     background-image: radial-gradient(circle at 10% 90%, rgba(130, 45, 110, 0.22) 0%, transparent 45%);
 }
 
+/* Чтобы заголовок раздела не прятался под липкой шапкой после клика по меню */
+.portfolio-section,
+.about-section,
+.skills-process-section,
+.contact-section {
+    scroll-margin-top: 60px;
+}
+
 /* Шапка сайта */
 .header {
     display: grid;
-    grid-template-columns: 280px 1fr 280px;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    gap: 20px;
     align-items: center;
     padding: 30px 60px;
     width: 100%;
@@ -36,6 +79,7 @@ body {
     position: sticky;
     top: 0;
     background-color: rgba(11, 7, 16, 0.85);
+    -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     z-index: 100;
 }
@@ -48,6 +92,7 @@ body {
     height: 60px;
     width: auto;
     object-fit: contain;
+    display: block;
 }
 
 /* Навигация строго по центру экрана */
@@ -59,7 +104,7 @@ body {
 .nav-menu ul {
     list-style: none;
     display: flex;
-    gap: 40px;
+    gap: clamp(20px, 2.6vw, 40px);
     position: relative;
 }
 
@@ -107,12 +152,16 @@ body {
     justify-self: end;
 }
 
-/* Первый экран (Hero) — ПК версия: текст слева, видео справа (согласно структуре HTML)[cite: 9, 10] */
+/* Первый экран (Hero) — ПК версия: текст слева, видео справа.
+   Порядок задан в HTML: сначала .hero-content, потом .hero-visual */
 .hero-section {
     width: 100%;
-    height: calc(100vh - 112px);
+    height: calc(100vh - 120px);
+    height: calc(100svh - 120px);
+    min-height: 580px;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 20px;
     align-items: center;
     padding: 0 60px;
     position: relative;
@@ -138,12 +187,12 @@ body {
 .process-column h2,
 .contact-left h2,
 #all-works-modal h2 {
-    font-family: 'Rousseau Deco', sans-serif;
+    font-family: 'Rousseau Deco', 'Montserrat Alternates', sans-serif;
     letter-spacing: 1px;
 }
 
 .hero-content h1 {
-    font-size: 46px;
+    font-size: clamp(30px, 3.6vw, 46px);
     font-weight: 700;
     line-height: 1.12;
     margin-bottom: 22px;
@@ -220,7 +269,7 @@ body {
     transform: translateY(-2px);
 }
 
-/* Правая визуальная часть */
+/* Правая визуальная часть (видео со звездой) */
 .hero-visual {
     position: relative;
     width: 100%;
@@ -240,7 +289,7 @@ body {
 }
 
 .star-video {
-    width: 700px;
+    width: min(700px, 100%);
     height: auto;
     z-index: 1;
     object-fit: contain;
@@ -338,11 +387,6 @@ body {
     cursor: pointer;
 }
 
-.portfolio-card:hover {
-    border-color: rgba(216, 180, 254, 0.3);
-    transform: translateY(-4px);
-}
-
 .card-image {
     width: 100%;
     height: 240px;
@@ -354,11 +398,8 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    display: block;
     transition: transform 0.5s ease;
-}
-
-.portfolio-card:hover .card-image img {
-    transform: scale(1.04);
 }
 
 .card-footer {
@@ -366,6 +407,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 16px;
 }
 
 .card-footer h3 {
@@ -374,9 +416,23 @@ body {
     color: #ffffff;
 }
 
+/* Короткое описание проекта; пока пустое, не занимает места */
+.card-desc {
+    font-size: 13px;
+    line-height: 1.5;
+    color: #9a90aa;
+    font-weight: 300;
+    margin-top: 6px;
+}
+
+.card-desc:empty {
+    display: none;
+}
+
 .card-arrow {
     width: 38px;
     height: 38px;
+    flex-shrink: 0;
     border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: 50%;
     display: flex;
@@ -387,20 +443,45 @@ body {
     transition: all 0.3s ease;
 }
 
-.portfolio-card:hover .card-arrow {
-    background-color: #d8b4fe;
-    color: #120c1f;
-    border-color: #d8b4fe;
+/* Эффекты наведения только там, где есть мышь: на телефоне они не «залипают» после касания */
+@media (hover: hover) {
+    .portfolio-card:hover {
+        border-color: rgba(216, 180, 254, 0.3);
+        transform: translateY(-4px);
+    }
+
+    .portfolio-card:hover .card-image img {
+        transform: scale(1.04);
+    }
+
+    .portfolio-card:hover .card-arrow {
+        background-color: #d8b4fe;
+        color: #120c1f;
+        border-color: #d8b4fe;
+    }
+
+    .all-work-item:hover {
+        border-color: rgba(216, 180, 254, 0.4);
+        transform: translateY(-3px);
+    }
+
+    .skill-card:hover .skill-icon-box {
+        border-color: rgba(216, 180, 254, 0.4);
+        transform: translateY(-4px);
+        box-shadow: 0 0 15px rgba(216, 180, 254, 0.15);
+    }
+
+    .contact-item:hover {
+        transform: translateX(4px);
+    }
 }
 
 /* МОДАЛЬНЫЕ ОКНА */
 .modal-overlay {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
+    inset: 0;
     background-color: rgba(11, 7, 16, 0.85);
+    -webkit-backdrop-filter: blur(12px);
     backdrop-filter: blur(12px);
     z-index: 1000;
     display: flex;
@@ -436,13 +517,18 @@ body {
 .modal-content-large {
     max-width: 1100px;
     max-height: 85vh;
+    max-height: 85dvh;
     overflow-y: auto;
+    overscroll-behavior: contain;
 }
 
 .modal-close {
     position: absolute;
-    top: 20px;
-    right: 25px;
+    top: 14px;
+    right: 18px;
+    width: 44px;
+    height: 44px;
+    line-height: 1;
     background: transparent;
     border: none;
     color: #ffffff;
@@ -459,8 +545,9 @@ body {
     font-size: 24px;
     font-weight: 600;
     margin-bottom: 20px;
+    padding-right: 40px;
     color: #ffffff;
-    font-family: 'Rousseau Deco', sans-serif;
+    font-family: 'Rousseau Deco', 'Montserrat Alternates', sans-serif;
 }
 
 .modal-video-container {
@@ -473,6 +560,7 @@ body {
 #modal-video-player {
     width: 100%;
     max-height: 70vh;
+    max-height: 70dvh;
     display: block;
 }
 
@@ -480,6 +568,7 @@ body {
 #all-works-modal h2 {
     font-size: 32px;
     margin-bottom: 30px;
+    padding-right: 40px;
     text-transform: uppercase;
 }
 
@@ -498,16 +587,12 @@ body {
     transition: border-color 0.3s ease, transform 0.3s ease;
 }
 
-.all-work-item:hover {
-    border-color: rgba(216, 180, 254, 0.4);
-    transform: translateY(-3px);
-}
-
 .all-work-item video {
     width: 100%;
     height: 160px;
     object-fit: cover;
     display: block;
+    background-color: #0b0710;
 }
 
 .all-work-title {
@@ -561,6 +646,7 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    display: block;
     filter: brightness(0.95);
 }
 
@@ -691,9 +777,10 @@ body {
     text-transform: uppercase;
 }
 
+/* Три иконки в ряд: 6 технологий ложатся ровно 3 + 3, на узком экране сжимаются */
 .skills-grid {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 110px));
     justify-content: center;
     gap: 20px;
     max-width: 390px;
@@ -704,12 +791,12 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 12px;
-    width: 110px;
+    min-width: 0;
 }
 
 .skill-icon-box {
-    width: 110px;
-    height: 110px;
+    width: 100%;
+    aspect-ratio: 1 / 1;
     background-color: #120c1a;
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 20px;
@@ -719,16 +806,11 @@ body {
     transition: all 0.3s ease;
 }
 
-.skill-icon-box img {
+.skill-icon-box img,
+.skill-icon-box svg {
     width: 48px;
     height: 48px;
     object-fit: contain;
-}
-
-.skill-card:hover .skill-icon-box {
-    border-color: rgba(216, 180, 254, 0.4);
-    transform: translateY(-4px);
-    box-shadow: 0 0 15px rgba(216, 180, 254, 0.15);
 }
 
 .skill-card span {
@@ -749,7 +831,7 @@ body {
     gap: 24px;
     opacity: 0;
     transform: translateY(25px);
-    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), 
+    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
                 transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -910,10 +992,6 @@ body {
     transition: transform 0.3s ease;
 }
 
-.contact-item:hover {
-    transform: translateX(4px);
-}
-
 .contact-icon-box {
     width: 50px;
     height: 50px;
@@ -936,6 +1014,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 3px;
+    min-width: 0;
 }
 
 .contact-label {
@@ -948,6 +1027,7 @@ body {
     font-size: 15px;
     color: #ffffff;
     font-weight: 500;
+    overflow-wrap: anywhere;
 }
 
 /* АДАПТИВНОСТЬ ДЛЯ ПЛАНШЕТОВ И МОБИЛЬНЫХ УСТРОЙСТВ */
@@ -970,22 +1050,33 @@ body {
 }
 
 @media (max-width: 1024px) {
+    .portfolio-section,
+    .about-section,
+    .skills-process-section,
+    .contact-section {
+        scroll-margin-top: 10px;
+    }
+
     .header {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        gap: 12px;
         padding: 10px 15px;
         width: 100%;
-        box-sizing: border-box;
     }
     .logo-img {
         height: 32px;
+        flex-shrink: 0;
     }
     .nav-menu {
         justify-self: auto;
+        min-width: 0;
         overflow-x: auto;
+        overflow-y: hidden;
+        padding-bottom: 6px;
         -webkit-overflow-scrolling: touch;
-        max-width: calc(100% - 60px);
+        scrollbar-width: none;
     }
     .nav-menu::-webkit-scrollbar {
         display: none;
@@ -999,11 +1090,16 @@ body {
         font-size: 12px;
         padding-bottom: 4px;
     }
+    /* Линия и кружок внутри области меню, иначе они создают лишнюю прокрутку */
+    .nav-indicator-bar {
+        bottom: 3px;
+    }
     .header-right-placeholder {
         display: none;
     }
 
-    /* Мобильная версия первого экрана: видео сверху, текст снизу без обрезания */
+    /* Мобильная версия первого экрана: видео сверху, текст снизу.
+       На ПК порядок другой (текст слева), поэтому тут видео поднимается наверх через order */
     .hero-section {
         display: flex;
         flex-direction: column;
@@ -1011,8 +1107,8 @@ body {
         text-align: center;
         padding: 20px 20px 40px 20px;
         height: auto;
+        min-height: 0;
         width: 100%;
-        box-sizing: border-box;
     }
     .hero-visual {
         order: -1;
@@ -1021,23 +1117,22 @@ body {
         margin-bottom: 20px;
     }
     .star-video {
-        width: 260px;
-        height: 260px;
+        width: min(260px, 70vw);
+        height: min(260px, 70vw);
     }
     .hero-content {
         width: 100%;
+        height: auto;
         display: flex;
         flex-direction: column;
         align-items: center;
-        box-sizing: border-box;
     }
     .hero-text-block {
         margin-top: 0;
         width: 100%;
-        box-sizing: border-box;
     }
     .hero-content h1 {
-        font-size: 28px;
+        font-size: clamp(22px, 7vw, 32px);
         line-height: 1.2;
         margin-bottom: 16px;
     }
@@ -1062,11 +1157,20 @@ body {
         justify-content: center;
         margin-top: 30px;
     }
+    .social-icon {
+        padding: 6px;
+    }
 
     .portfolio-header {
         flex-direction: column;
         align-items: flex-start;
         gap: 20px;
+    }
+    .portfolio-header h2,
+    .about-content h2,
+    .skills-column h2,
+    .process-column h2 {
+        font-size: clamp(26px, 7vw, 36px);
     }
     .portfolio-section, .about-section, .skills-process-section {
         padding: 60px 20px;
@@ -1083,6 +1187,14 @@ body {
         grid-template-columns: 1fr;
         gap: 50px;
     }
+    .skills-grid {
+        justify-content: start;
+        gap: 16px;
+    }
+    .skills-column h2,
+    .process-column h2 {
+        margin-bottom: 30px;
+    }
     .vertical-divider {
         display: none;
     }
@@ -1098,7 +1210,7 @@ body {
         padding: 40px 20px 80px 20px;
     }
     .contact-left h2 {
-        font-size: 30px;
+        font-size: clamp(24px, 7vw, 30px);
     }
     .contact-glass-img {
         opacity: 0.4;
@@ -1108,5 +1220,56 @@ body {
 @media (max-width: 768px) {
     .portfolio-grid, .all-works-grid {
         grid-template-columns: 1fr;
+    }
+    .card-image {
+        height: 210px;
+    }
+    .card-footer {
+        padding: 18px 20px;
+    }
+
+    .modal-content {
+        width: calc(100% - 24px);
+        padding: 56px 16px 18px;
+        border-radius: 18px;
+    }
+    .modal-close {
+        top: 6px;
+        right: 8px;
+    }
+    #modal-project-title {
+        font-size: 18px;
+        margin-bottom: 14px;
+    }
+    #all-works-modal h2 {
+        font-size: 22px;
+        margin-bottom: 20px;
+    }
+    .all-work-item video {
+        height: 190px;
+    }
+}
+
+@media (max-width: 420px) {
+    .contact-banner {
+        padding: 32px 22px;
+    }
+    .about-image-wrapper {
+        height: 320px;
+    }
+}
+
+/* Для тех, у кого в системе отключены анимации */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+    .process-step {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+    * {
+        transition-duration: 0.01ms !important;
     }
 }
