@@ -3,9 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vesper Code — Стильные и функциональные сайты</title>
+    <title>Vesper Code — Сайты для малого бизнеса</title>
+    <meta name="description" content="Делаю сайты для студий, салонов, кофеен и магазинов: дизайн в Figma и вёрстка на чистом коде. От идеи до запуска.">
+    <meta name="theme-color" content="#0b0710">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Vesper Code — Сайты для малого бизнеса">
+    <meta property="og:description" content="Дизайн в Figma и вёрстка на чистом коде. От идеи до запуска.">
+    <link rel="icon" href="logo.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Rousseau Deco подключён отдельным запросом: если такого шрифта нет в Google Fonts,
+         это не сломает загрузку Montserrat. См. комментарий про @font-face в начале style.css -->
+    <link href="https://fonts.googleapis.com/css2?family=Rousseau+Deco&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&family=Rousseau+Deco&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -13,15 +26,15 @@
         <!-- Шапка сайта -->
         <header class="header">
             <div class="logo-container">
-                <img src="logo.png" alt="Vesper Code Logo" class="logo-img">
+                <img src="logo.png" alt="Vesper Code" class="logo-img">
             </div>
-            
-            <nav class="nav-menu">
+
+            <nav class="nav-menu" aria-label="Основное меню">
                 <ul id="nav-list">
                     <li><a href="#home" class="active" data-target="home">Главная</a></li>
                     <li><a href="#projects" data-target="projects">Проекты</a></li>
                     <li><a href="#about" data-target="about">Обо мне</a></li>
-                    <li><a href="#skills" data-target="skills">Услуги</a></li>
+                    <li><a href="#skills" data-target="skills">Процесс</a></li>
                     <li><a href="#contacts" data-target="contacts">Контакты</a></li>
                 </ul>
                 <div class="nav-indicator-bar" id="nav-indicator">
@@ -32,32 +45,31 @@
             <div class="header-right-placeholder"></div>
         </header>
 
-        <!-- Первый экран (Hero) -->
+        <!-- Первый экран (Hero): на ПК текст слева, видео справа; на мобильном видео сверху -->
         <main id="home" class="hero-section">
-            <div class="hero-visual">
-                <div class="star-container">
-                    <video autoplay muted loop playsinline class="star-video">
-                        <source src="star-video.mp4" type="video/mp4">
-                        Ваш браузер не поддерживает видео.
-                    </video>
-                </div>
-            </div>
-
             <div class="hero-content">
                 <div class="hero-text-block">
                     <h1>СТИЛЬНЫЕ<br>И ФУНКЦИОНАЛЬНЫЕ<br>САЙТЫ</h1>
-                    <p>Разрабатываю современные сайты, которые не только красиво выглядят, но и приносят результат. От идеи до финального релиза — беру проект на себя</p>
-                    
+                    <p>Делаю сайты для малого бизнеса: студий, салонов, кофеен и интернет-магазинов. Дизайн и код — в одних руках, от идеи до запуска</p>
+
                     <div class="hero-buttons">
                         <a href="#contacts" class="btn btn-primary">Обсудить проект &rarr;</a>
                         <a href="#projects" class="btn btn-secondary">Смотреть работы &rarr;</a>
                     </div>
 
                     <div class="social-icons">
-                        <a href="https://t.me/vespercodev" target="_blank" class="social-icon"><img src="icon-telegram.png" alt="Telegram"></a>
-                        <a href="https://vk.com/vespercode" target="_blank" class="social-icon"><img src="icon-vk.png" alt="VK"></a>
-                        <a href="mailto:vespercodev@gmail.com" class="social-icon"><img src="icon-email.png" alt="Email"></a>
+                        <a href="https://t.me/vespercodev" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Telegram"><img src="icon-telegram.png" alt="Telegram"></a>
+                        <a href="https://vk.com/vespercode" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="VK"><img src="icon-vk.png" alt="VK"></a>
+                        <a href="mailto:vespercodev@gmail.com" class="social-icon" aria-label="Email"><img src="icon-email.png" alt="Email"></a>
                     </div>
+                </div>
+            </div>
+
+            <div class="hero-visual">
+                <div class="star-container">
+                    <video autoplay muted loop playsinline preload="auto" aria-hidden="true" class="star-video">
+                        <source src="star-video.mp4" type="video/mp4">
+                    </video>
                 </div>
             </div>
         </main>
@@ -71,50 +83,71 @@
                 </div>
                 <div class="portfolio-description-group">
                     <p>Здесь собраны избранные проекты, в которых я реализовала полный цикл: от прототипа и дизайна до вёрстки и запуска</p>
-                    <a href="#" id="open-all-works" class="all-works-link">Смотреть все работы &rarr;</a>
+                    <a href="#projects" id="open-all-works" class="all-works-link">Смотреть все работы &rarr;</a>
                 </div>
             </div>
 
+            <!-- В каждой карточке есть пустой <p class="card-desc"></p>: пока он пустой, его не видно.
+                 Впиши туда 1 строку: что на сайте и за какой срок, например
+                 «Онлайн-запись, галерея, адаптив. Срок: 5 дней». -->
             <div class="portfolio-grid">
                 <div class="portfolio-card" data-video="project-video-1.mp4" data-title="Фотостудия">
-                    <div class="card-image"><img src="project-photo-1.jpg" alt="Фотостудия"></div>
+                    <div class="card-image"><img src="project-photo-1.jpg" alt="Фотостудия" loading="lazy" decoding="async"></div>
                     <div class="card-footer">
-                        <h3>Фотостудия</h3>
+                        <div class="card-text">
+                            <h3>Фотостудия</h3>
+                            <p class="card-desc"></p>
+                        </div>
                         <span class="card-arrow">&rarr;</span>
                     </div>
                 </div>
                 <div class="portfolio-card" data-video="project-video-2.mp4" data-title="Груминг салон">
-                    <div class="card-image"><img src="project-photo-2.jpg" alt="Груминг салон"></div>
+                    <div class="card-image"><img src="project-photo-2.jpg" alt="Груминг салон" loading="lazy" decoding="async"></div>
                     <div class="card-footer">
-                        <h3>Груминг салон</h3>
+                        <div class="card-text">
+                            <h3>Груминг салон</h3>
+                            <p class="card-desc"></p>
+                        </div>
                         <span class="card-arrow">&rarr;</span>
                     </div>
                 </div>
                 <div class="portfolio-card" data-video="project-video-3.mp4" data-title="Магазин энергетиков">
-                    <div class="card-image"><img src="project-photo-3.jpg" alt="Магазин энергетиков"></div>
+                    <div class="card-image"><img src="project-photo-3.jpg" alt="Магазин энергетиков" loading="lazy" decoding="async"></div>
                     <div class="card-footer">
-                        <h3>Магазин энергетиков</h3>
+                        <div class="card-text">
+                            <h3>Магазин энергетиков</h3>
+                            <p class="card-desc"></p>
+                        </div>
                         <span class="card-arrow">&rarr;</span>
                     </div>
                 </div>
                 <div class="portfolio-card" data-video="project-video-4.mp4" data-title="Кофейня">
-                    <div class="card-image"><img src="project-photo-4.jpg" alt="Кофейня"></div>
+                    <div class="card-image"><img src="project-photo-4.jpg" alt="Кофейня" loading="lazy" decoding="async"></div>
                     <div class="card-footer">
-                        <h3>Кофейня</h3>
+                        <div class="card-text">
+                            <h3>Кофейня</h3>
+                            <p class="card-desc"></p>
+                        </div>
                         <span class="card-arrow">&rarr;</span>
                     </div>
                 </div>
                 <div class="portfolio-card" data-video="project-video-5.mp4" data-title="Лендинг инфо">
-                    <div class="card-image"><img src="project-photo-5.jpg" alt="Лендинг инфо"></div>
+                    <div class="card-image"><img src="project-photo-5.jpg" alt="Лендинг инфо" loading="lazy" decoding="async"></div>
                     <div class="card-footer">
-                        <h3>Лендинг инфо</h3>
+                        <div class="card-text">
+                            <h3>Лендинг инфо</h3>
+                            <p class="card-desc"></p>
+                        </div>
                         <span class="card-arrow">&rarr;</span>
                     </div>
                 </div>
                 <div class="portfolio-card" data-video="project-video-6.mp4" data-title="Интернет магазин">
-                    <div class="card-image"><img src="project-photo-6.jpg" alt="Интернет магазин"></div>
+                    <div class="card-image"><img src="project-photo-6.jpg" alt="Интернет магазин" loading="lazy" decoding="async"></div>
                     <div class="card-footer">
-                        <h3>Интернет магазин</h3>
+                        <div class="card-text">
+                            <h3>Интернет магазин</h3>
+                            <p class="card-desc"></p>
+                        </div>
                         <span class="card-arrow">&rarr;</span>
                     </div>
                 </div>
@@ -125,18 +158,18 @@
         <section id="about" class="about-section">
             <div class="about-container">
                 <div class="about-image-wrapper">
-                    <img src="about-photo.jpg" alt="Фото разработчика" class="about-photo">
+                    <img src="about-photo.jpg" alt="Фото разработчика" class="about-photo" loading="lazy" decoding="async">
                 </div>
 
                 <div class="about-content">
                     <h2>НЕМНОГО ОБО МНЕ</h2>
                     <p class="about-text">
-                        Я - веб-разработчик и UI/UX дизайнер. Создаю сайты, которые сочетают в себе эстетику, удобство и современные технологии. Люблю продумывать детали, искать креативные решения и делать продукт, которым действительно пользуются
+                        Я — веб-разработчик и UI/UX дизайнер. Создаю сайты, которые сочетают в себе эстетику, удобство и современные технологии. Люблю продумывать детали, искать креативные решения и делать продукт, которым действительно пользуются
                     </p>
 
                     <div class="about-features">
                         <div class="feature-item">
-                            <div class="feature-icon"><img src="icon-code.png" alt="Code"></div>
+                            <div class="feature-icon"><img src="icon-code.png" alt="" aria-hidden="true"></div>
                             <div class="feature-desc">
                                 <h4>Работаю с современными технологиями</h4>
                                 <p>HTML, CSS, JS, React, Next.js, Figma</p>
@@ -144,15 +177,15 @@
                         </div>
 
                         <div class="feature-item">
-                            <div class="feature-icon"><img src="icon-diamond.png" alt="Diamond"></div>
+                            <div class="feature-icon"><img src="icon-diamond.png" alt="" aria-hidden="true"></div>
                             <div class="feature-desc">
                                 <h4>Внимание к деталям</h4>
-                                <p>Пиксель-идеальная вёрстка и чистый код</p>
+                                <p>Адаптивная вёрстка под телефон, планшет и ПК, чистый код</p>
                             </div>
                         </div>
 
                         <div class="feature-item">
-                            <div class="feature-icon"><img src="icon-lightning.png" alt="Lightning"></div>
+                            <div class="feature-icon"><img src="icon-lightning.png" alt="" aria-hidden="true"></div>
                             <div class="feature-desc">
                                 <h4>Люблю сложные задачи</h4>
                                 <p>Чем интереснее — тем лучше</p>
@@ -161,36 +194,51 @@
                     </div>
                 </div>
             </div>
-            <div class="about-bg-flower"><img src="about-lilies.png" alt="Линии цветов"></div>
+            <div class="about-bg-flower" aria-hidden="true"><img src="about-lilies.png" alt="" loading="lazy" decoding="async"></div>
         </section>
 
         <!-- Блок: Стек, Инструменты и Процесс -->
         <section id="skills" class="skills-process-section">
             <div class="skills-process-container">
-                
+
                 <div class="skills-column">
                     <span class="section-subtitle">Навыки</span>
                     <h2>СТЕК И ИНСТРУМЕНТЫ</h2>
 
                     <div class="skills-grid">
                         <div class="skill-card">
-                            <div class="skill-icon-box"><img src="tech-html.png" alt="HTML"></div>
+                            <div class="skill-icon-box"><img src="tech-html.png" alt="HTML" loading="lazy"></div>
                             <span>HTML</span>
                         </div>
                         <div class="skill-card">
-                            <div class="skill-icon-box"><img src="tech-css.png" alt="CSS"></div>
+                            <div class="skill-icon-box"><img src="tech-css.png" alt="CSS" loading="lazy"></div>
                             <span>CSS</span>
                         </div>
                         <div class="skill-card">
-                            <div class="skill-icon-box"><img src="tech-js.png" alt="JS"></div>
+                            <div class="skill-icon-box"><img src="tech-js.png" alt="JS" loading="lazy"></div>
                             <span>JS</span>
                         </div>
                         <div class="skill-card">
-                            <div class="skill-icon-box"><img src="tech-figma.png" alt="Figma"></div>
+                            <div class="skill-icon-box"><img src="tech-figma.png" alt="Figma" loading="lazy"></div>
                             <span>Figma</span>
                         </div>
                         <div class="skill-card">
-                            <div class="skill-icon-box"><img src="tech-nextjs.png" alt="Next.js"></div>
+                            <div class="skill-icon-box">
+                                <!-- Иконка React встроена в код, отдельный файл не нужен.
+                                     Если хочешь в едином стиле с остальными, замени на <img src="tech-react.png" alt="React"> -->
+                                <svg viewBox="-11.5 -10.23174 23 20.46348" role="img" aria-label="React">
+                                    <circle r="2.05" fill="#61dafb"></circle>
+                                    <g stroke="#61dafb" stroke-width="1" fill="none">
+                                        <ellipse rx="11" ry="4.2"></ellipse>
+                                        <ellipse rx="11" ry="4.2" transform="rotate(60)"></ellipse>
+                                        <ellipse rx="11" ry="4.2" transform="rotate(120)"></ellipse>
+                                    </g>
+                                </svg>
+                            </div>
+                            <span>React</span>
+                        </div>
+                        <div class="skill-card">
+                            <div class="skill-icon-box"><img src="tech-nextjs.png" alt="Next.js" loading="lazy"></div>
                             <span>Next.js</span>
                         </div>
                     </div>
@@ -221,7 +269,7 @@
                             <div class="step-number">03</div>
                             <div class="step-content">
                                 <h3>Разработка</h3>
-                                <p>Вёрстка, настройка CMS, тестирование на всех устройствах</p>
+                                <p>Вёрстка на чистом коде, тестирование на телефоне, планшете и ПК</p>
                             </div>
                         </div>
                         <div class="process-step">
@@ -240,19 +288,19 @@
         <!-- Блок: Контакты (Баннер) -->
         <section id="contacts" class="contact-section">
             <div class="contact-banner">
-                
+
                 <div class="contact-left">
                     <span class="contact-subtitle">Контакты</span>
                     <h2>ДАВАЙТЕ СОЗДАДИМ ЧТО-ТО КРУТОЕ</h2>
-                    <p>Обсудим ваш проект, ответим на вопросы и подберём лучшее решение для ваших задач</p>
-                    <a href="https://t.me/vespercodev" target="_blank" class="btn btn-primary">Написать мне &rarr;</a>
+                    <p>Обсужу ваш проект, отвечу на вопросы и подберу лучшее решение для ваших задач</p>
+                    <a href="https://t.me/vespercodev" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Написать мне &rarr;</a>
                 </div>
 
                 <div class="contact-divider"></div>
 
                 <div class="contact-right">
-                    <a href="https://t.me/vespercodev" target="_blank" class="contact-item">
-                        <div class="contact-icon-box"><img src="icon-telegram.png" alt="Telegram"></div>
+                    <a href="https://t.me/vespercodev" target="_blank" rel="noopener noreferrer" class="contact-item">
+                        <div class="contact-icon-box"><img src="icon-telegram.png" alt="" aria-hidden="true"></div>
                         <div class="contact-info">
                             <span class="contact-label">Telegram</span>
                             <span class="contact-val">@vespercodev</span>
@@ -260,15 +308,15 @@
                     </a>
 
                     <a href="mailto:vespercodev@gmail.com" class="contact-item">
-                        <div class="contact-icon-box"><img src="icon-email.png" alt="Email"></div>
+                        <div class="contact-icon-box"><img src="icon-email.png" alt="" aria-hidden="true"></div>
                         <div class="contact-info">
                             <span class="contact-label">Email</span>
                             <span class="contact-val">vespercodev@gmail.com</span>
                         </div>
                     </a>
 
-                    <a href="https://vk.com/vespercode" target="_blank" class="contact-item">
-                        <div class="contact-icon-box"><img src="icon-vk.png" alt="VK"></div>
+                    <a href="https://vk.com/vespercode" target="_blank" rel="noopener noreferrer" class="contact-item">
+                        <div class="contact-icon-box"><img src="icon-vk.png" alt="" aria-hidden="true"></div>
                         <div class="contact-info">
                             <span class="contact-label">VK</span>
                             <span class="contact-val">@vespercode</span>
@@ -277,15 +325,15 @@
                 </div>
 
                 <div class="contact-bg-glow"></div>
-                <img src="contact-glass.png" alt="Стеклянный объект" class="contact-glass-img">
+                <img src="contact-glass.png" alt="" aria-hidden="true" class="contact-glass-img" loading="lazy" decoding="async">
             </div>
         </section>
     </div>
 
     <!-- Модальные окна -->
-    <div id="project-modal" class="modal-overlay">
+    <div id="project-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-project-title" aria-hidden="true">
         <div class="modal-content">
-            <button class="modal-close">&times;</button>
+            <button type="button" class="modal-close" aria-label="Закрыть">&times;</button>
             <h3 id="modal-project-title">Название проекта</h3>
             <div class="modal-video-container">
                 <video id="modal-video-player" controls autoplay playsinline>
@@ -296,33 +344,33 @@
         </div>
     </div>
 
-    <div id="all-works-modal" class="modal-overlay">
+    <div id="all-works-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="all-works-title" aria-hidden="true">
         <div class="modal-content modal-content-large">
-            <button class="modal-close">&times;</button>
-            <h2>ВСЕ РАБОТЫ</h2>
+            <button type="button" class="modal-close" aria-label="Закрыть">&times;</button>
+            <h2 id="all-works-title">ВСЕ РАБОТЫ</h2>
             <div class="all-works-grid">
                 <div class="all-work-item" data-video="project-video-1.mp4" data-title="Фотостудия">
-                    <video src="project-video-1.mp4" muted loop playsinline onmouseover="this.play()" onmouseout="this.pause();this.currentTime=0;"></video>
+                    <video src="project-video-1.mp4#t=0.1" preload="metadata" muted loop playsinline></video>
                     <div class="all-work-title">Фотостудия</div>
                 </div>
                 <div class="all-work-item" data-video="project-video-2.mp4" data-title="Груминг салон">
-                    <video src="project-video-2.mp4" muted loop playsinline onmouseover="this.play()" onmouseout="this.pause();this.currentTime=0;"></video>
+                    <video src="project-video-2.mp4#t=0.1" preload="metadata" muted loop playsinline></video>
                     <div class="all-work-title">Груминг салон</div>
                 </div>
                 <div class="all-work-item" data-video="project-video-3.mp4" data-title="Магазин энергетиков">
-                    <video src="project-video-3.mp4" muted loop playsinline onmouseover="this.play()" onmouseout="this.pause();this.currentTime=0;"></video>
+                    <video src="project-video-3.mp4#t=0.1" preload="metadata" muted loop playsinline></video>
                     <div class="all-work-title">Магазин энергетиков</div>
                 </div>
                 <div class="all-work-item" data-video="project-video-4.mp4" data-title="Кофейня">
-                    <video src="project-video-4.mp4" muted loop playsinline onmouseover="this.play()" onmouseout="this.pause();this.currentTime=0;"></video>
+                    <video src="project-video-4.mp4#t=0.1" preload="metadata" muted loop playsinline></video>
                     <div class="all-work-title">Кофейня</div>
                 </div>
                 <div class="all-work-item" data-video="project-video-5.mp4" data-title="Лендинг инфо">
-                    <video src="project-video-5.mp4" muted loop playsinline onmouseover="this.play()" onmouseout="this.pause();this.currentTime=0;"></video>
+                    <video src="project-video-5.mp4#t=0.1" preload="metadata" muted loop playsinline></video>
                     <div class="all-work-title">Лендинг инфо</div>
                 </div>
                 <div class="all-work-item" data-video="project-video-6.mp4" data-title="Интернет магазин">
-                    <video src="project-video-6.mp4" muted loop playsinline onmouseover="this.play()" onmouseout="this.pause();this.currentTime=0;"></video>
+                    <video src="project-video-6.mp4#t=0.1" preload="metadata" muted loop playsinline></video>
                     <div class="all-work-title">Интернет магазин</div>
                 </div>
             </div>
@@ -330,40 +378,61 @@
     </div>
 
     <script>
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const scrollBehavior = prefersReducedMotion ? 'auto' : 'smooth';
+
+        /* ---------- Навигация и индикатор ---------- */
+        const navMenu = document.querySelector('.nav-menu');
         const navList = document.getElementById('nav-list');
         const navItems = navList.querySelectorAll('li a');
         const indicatorBar = document.getElementById('nav-indicator');
 
+        // Пока идёт плавная прокрутка по клику в меню, подсветку не перебивает наблюдатель
+        let navLockUntil = 0;
+
         function updateIndicator(targetItem) {
             const listRect = navList.getBoundingClientRect();
             const itemRect = targetItem.getBoundingClientRect();
-            const left = itemRect.left - listRect.left;
-            const width = itemRect.width;
 
-            indicatorBar.style.left = `${left}px`;
-            indicatorBar.style.width = `${width}px`;
+            indicatorBar.style.left = `${itemRect.left - listRect.left}px`;
+            indicatorBar.style.width = `${itemRect.width}px`;
             indicatorBar.style.opacity = '1';
+        }
+
+        // На телефоне меню прокручивается вбок: держим активный пункт по центру
+        function centerNavItem(item) {
+            if (navMenu.scrollWidth <= navMenu.clientWidth) return;
+            const left = item.offsetLeft - (navMenu.clientWidth - item.offsetWidth) / 2;
+            navMenu.scrollTo({ left: left, behavior: scrollBehavior });
         }
 
         function setActiveLink(activeItem) {
             navItems.forEach(i => i.classList.remove('active'));
             activeItem.classList.add('active');
             updateIndicator(activeItem);
+            centerNavItem(activeItem);
         }
 
-        const initialActive = navList.querySelector('a.active');
-        if (initialActive) {
-            updateIndicator(initialActive);
+        function refreshIndicator() {
+            const currentActive = navList.querySelector('a.active');
+            if (currentActive) updateIndicator(currentActive);
+        }
+
+        refreshIndicator();
+        window.addEventListener('resize', refreshIndicator);
+        window.addEventListener('load', refreshIndicator);
+        if (document.fonts && document.fonts.ready) {
+            document.fonts.ready.then(refreshIndicator);
         }
 
         navItems.forEach(item => {
             item.addEventListener('click', (e) => {
                 e.preventDefault();
-                const targetId = item.getAttribute('href');
-                const targetSection = document.querySelector(targetId);
-                
+                const targetSection = document.querySelector(item.getAttribute('href'));
+
                 if (targetSection) {
-                    targetSection.scrollIntoView({ behavior: 'smooth' });
+                    navLockUntil = Date.now() + 1200;
+                    targetSection.scrollIntoView({ behavior: scrollBehavior });
                     setActiveLink(item);
                 }
             });
@@ -373,21 +442,11 @@
             });
         });
 
-        navList.addEventListener('mouseleave', () => {
-            const currentActive = navList.querySelector('a.active');
-            if (currentActive) {
-                updateIndicator(currentActive);
-            }
-        });
+        navList.addEventListener('mouseleave', refreshIndicator);
 
         const sections = document.querySelectorAll('main, section');
-        const observerOptions = {
-            root: null,
-            rootMargin: '-20% 0px -60% 0px',
-            threshold: 0
-        };
-
         const observer = new IntersectionObserver((entries) => {
+            if (Date.now() < navLockUntil) return;
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     const id = entry.target.getAttribute('id');
@@ -397,63 +456,115 @@
                     }
                 }
             });
-        }, observerOptions);
-
-        sections.forEach(section => {
-            observer.observe(section);
+        }, {
+            root: null,
+            rootMargin: '-20% 0px -60% 0px',
+            threshold: 0
         });
 
+        sections.forEach(section => observer.observe(section));
+
+        // Контакты — короткий блок внизу страницы: когда долистали до конца, подсвечиваем его
+        window.addEventListener('scroll', () => {
+            if (Date.now() < navLockUntil) return;
+            const atBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4;
+            if (atBottom) {
+                const last = navList.querySelector('a[href="#contacts"]');
+                if (last && !last.classList.contains('active')) setActiveLink(last);
+            }
+        }, { passive: true });
+
+        /* ---------- Модальные окна ---------- */
         const projectModal = document.getElementById('project-modal');
         const allWorksModal = document.getElementById('all-works-modal');
         const modalVideoPlayer = document.getElementById('modal-video-player');
         const modalVideoSource = document.getElementById('modal-video-source');
         const modalProjectTitle = document.getElementById('modal-project-title');
-        
+
         const openAllWorksBtn = document.getElementById('open-all-works');
         const projectCards = document.querySelectorAll('.portfolio-card');
         const allWorkItems = document.querySelectorAll('.all-work-item');
         const closeButtons = document.querySelectorAll('.modal-close');
 
-        projectCards.forEach(card => {
-            card.addEventListener('click', () => {
-                const videoSrc = card.getAttribute('data-video');
-                const titleText = card.getAttribute('data-title');
+        function showModal(modal) {
+            modal.classList.add('active');
+            modal.setAttribute('aria-hidden', 'false');
+            document.body.classList.add('modal-open');
+        }
 
-                modalProjectTitle.textContent = titleText;
-                modalVideoSource.setAttribute('src', videoSrc);
-                modalVideoPlayer.load();
-                projectModal.classList.add('active');
+        function hideModal(modal) {
+            modal.classList.remove('active');
+            modal.setAttribute('aria-hidden', 'true');
+        }
+
+        function openProject(videoSrc, titleText) {
+            modalProjectTitle.textContent = titleText;
+            modalVideoSource.setAttribute('src', videoSrc);
+            modalVideoPlayer.load();
+            showModal(projectModal);
+            const playPromise = modalVideoPlayer.play();
+            if (playPromise && playPromise.catch) playPromise.catch(() => {});
+        }
+
+        function closeModal() {
+            hideModal(projectModal);
+            hideModal(allWorksModal);
+            document.body.classList.remove('modal-open');
+            modalVideoPlayer.pause();
+            modalVideoSource.removeAttribute('src');
+            modalVideoPlayer.load();
+        }
+
+        projectCards.forEach(card => {
+            // Карточки доступны и с клавиатуры
+            card.setAttribute('tabindex', '0');
+            card.setAttribute('role', 'button');
+
+            card.addEventListener('click', () => {
+                openProject(card.getAttribute('data-video'), card.getAttribute('data-title'));
+            });
+            card.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    card.click();
+                }
             });
         });
 
         openAllWorksBtn.addEventListener('click', (e) => {
             e.preventDefault();
-            allWorksModal.classList.add('active');
+            showModal(allWorksModal);
         });
 
         allWorkItems.forEach(item => {
-            item.addEventListener('click', () => {
-                const videoSrc = item.getAttribute('data-video');
-                const titleText = item.getAttribute('data-title');
+            const preview = item.querySelector('video');
 
-                allWorksModal.classList.remove('active');
-                modalProjectTitle.textContent = titleText;
-                modalVideoSource.setAttribute('src', videoSrc);
-                modalVideoPlayer.load();
-                projectModal.classList.add('active');
+            // Превью проигрывается при наведении мыши; на телефоне виден первый кадр
+            item.addEventListener('mouseenter', () => {
+                const p = preview.play();
+                if (p && p.catch) p.catch(() => {});
+            });
+            item.addEventListener('mouseleave', () => {
+                preview.pause();
+                preview.currentTime = 0.1;
+            });
+
+            item.setAttribute('tabindex', '0');
+            item.setAttribute('role', 'button');
+            item.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    item.click();
+                }
+            });
+
+            item.addEventListener('click', () => {
+                hideModal(allWorksModal);
+                openProject(item.getAttribute('data-video'), item.getAttribute('data-title'));
             });
         });
 
-        function closeModal() {
-            projectModal.classList.remove('active');
-            allWorksModal.classList.remove('active');
-            modalVideoPlayer.pause();
-            modalVideoSource.setAttribute('src', '');
-        }
-
-        closeButtons.forEach(btn => {
-            btn.addEventListener('click', closeModal);
-        });
+        closeButtons.forEach(btn => btn.addEventListener('click', closeModal));
 
         window.addEventListener('click', (e) => {
             if (e.target === projectModal || e.target === allWorksModal) {
@@ -461,14 +572,19 @@
             }
         });
 
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeModal();
+        });
+
+        /* ---------- Появление шагов процесса ---------- */
         const processStepsContainer = document.querySelector('.process-steps');
 
         if (processStepsContainer) {
-            const processObserver = new IntersectionObserver((entries, observer) => {
+            const processObserver = new IntersectionObserver((entries, obs) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         processStepsContainer.classList.add('visible');
-                        observer.unobserve(entry.target);
+                        obs.unobserve(entry.target);
                     }
                 });
             }, {
